@@ -35,6 +35,8 @@ Go to the Data worksheet. To begin, we want to verify what special characters mi
 How many records have the character 30 as the final character? (Hint: After writing your formula in column C, you can write a formula in cell C3 that uses the COUNTIFS function to count how many times the value in column C is 30.)
 
 #### Answer located at: Data!C3
+&nbsp;
+&nbsp;
 
 ### Question 2
 
@@ -43,20 +45,39 @@ Next, we want to remove some of these final characters with the CLEAN function. 
 Enter just the 5 digits (6 on a Mac), without any commas or other thousands separator.
 
 #### Answer located at: Data!D2
+&nbsp;
+&nbsp;
 
 ### Question 3
 Now we want to verify that the CLEAN function did, in fact, remove all of the unwanted final characters. In column E, write a formula just like column C that returns the ASCII code of the final character from each record in column D. How many records have the character 32 as the final character?
 
+#### Answer located at: Data!E3
+&nbsp;
+&nbsp;
+
 ### Question 4
 Our next plan is to get rid of the non-breaking spaces between the dates and the sales amounts by replacing those characters with regular spaces. Which function can we use to change all of the instances of one character from a text string into a different character? (Type only the function name)
+
+#### Answer: SUBSTITUTE
+&nbsp;
+&nbsp;
 
 ### Question 5
 To use the SUBSTITUTE function to replace non-breaking spaces with regular spaces, we need a way to refer to both of these character types in the arguments of the SUBSTITUTE function. For the space character, we can easily do this by typing a space in between quotation marks like this: " ". For the non-breaking space character, we can use the CHAR function to return a non-breaking space. If you are using the Unicode workbook, then you can use the UNICHAR function instead.
 
 What number is used as the argument of the CHAR function to return a non-breaking space?
 
+#### Answer: 160
+&nbsp;
+&nbsp;
+
+
 ### Question 6
 In column F, use the SUBSTITUTE function (with a CHAR function in the second argument) to change all of the non-breaking spaces in column D into regular spaces. What is the value of the Check Sum in cell F2 after you do this?
+
+#### Answer located at: Data!F2
+&nbsp;
+&nbsp;
 
 ### Question 7
 We could use the TRIM function now to get rid of the trailing spaces and the duplicate spaces between the date and price, but think ahead. We still have some "/" characters at the start of each record that we don't want, and we have some "_" characters between the product and sales person that we don't want. It makes sense to wait until after we remove these characters before we use the TRIM function, otherwise we may end up just needing to use it twice. Let's focus on the "/" characters at the start of each record next.
@@ -65,24 +86,44 @@ In column G, use the SUBSTITUTE function to remove all of the "/" characters fro
 
 What is the value of the Check Sum in cell G2 after you do this?
 
+#### Answer located at: Data!G2
+&nbsp;
+&nbsp;
+
 ### Question 8
 Now in column H, replace all of the "_" characters in our column G data with spaces, and then we will be ready to use the TRIM function. The reason we want to replace "_" with spaces instead of blank text is because having a space character between the Product data and the Sales Person data will make it much easier for us to extract those individual bits of data than if there was no space between them, as we will see later.
 
 Perform this replacement and provide the value of the Check Sum from cell H2.
+
+#### Answer located at: Data!H2
+&nbsp;
+&nbsp;
 
 ### Question 9
 In column I, apply the TRIM function to our data.
 
 When you are done, instead of using the Check Sum to see if this has been done correctly, we're going to use the LEN function. In cells J5:J500, use the LEN function to find the length of each now-trimmed record from column I. Cell J2 contains a formula that is summing all of these lengths. What is the value in cell J2?
 
+#### Answer located at: Data!J2
+&nbsp;
+&nbsp;
+
 ### Question 10
 In cell K5, write a formula to find the ASCII code of the final character of each record and apply it to cells K5:K500. If we look at the results we will see that all values range between 48 and 57, which correspond to the digits 0 through 9. That's good news, since we expect every record to be ending with the sales amount at this point. The digits 0 through 9 for the final character is exactly what we would expect. Performing checks like this as we go can be helpful to make sure we are on the right track.
 
 Now it is time to get rid of the of the prefixes in front of the product names and the Sales Person names. In column L, write a formula that refers to our records in column I but substitutes the text PR: for blank text (remember the double quotation marks). When you are done, enter the value of the Check Sum from cell L2.
 
+#### Answer located at: Data!J2
+&nbsp;
+&nbsp;
+
 
 ### Question 11
 In column M, further clean the data by substituting SP: with blank text. After you do, what is the value of the check sum in cell M2?
+
+#### Answer located at: Data!M2
+&nbsp;
+&nbsp;
 
 
 ### Question 12
@@ -96,21 +137,35 @@ In cell O5, write the following formula and then apply it to cells O5:O500.
 
 =FIND(" ",N5,1). The 1 at the end of this formula is an optional argument, and it tells the FIND function to begin searching for the text string " " starting at the 1st character within N5. When you are done, write down the value in cell O2.
 
+#### Answer located at: Data!O2
+&nbsp;
+&nbsp;
 
 ### Question 13
 In cell P5, write a formula to find the location of the second space character within column N, and apply it to cells P5:P500. Hint: you can use the location of the first space that we found earlier as the place to start our search. You will need to add 1 to the previous location so that it doesn't find the same space again.
 
 What is the value in cell P2?
 
+#### Answer located at: Data!P2
+&nbsp;
+&nbsp;
+
 
 ### Question 14
 There is one more space character we need the location of. The third space character in the string is between the date and the Sales Amount. In cell Q5 we can write =FIND(" ",N5,P5+1), or we can write =FIND("$",N5,1)-1. They should give equivalent results. Do you see why? The second of these formulas is looking for the location of the first dollar sign, and then subtracting one from that value. Since our data is structured in a way that the third space character is immediately before the $ character, either formula should work. Apply one of these formulas in cells Q5:Q500, and then enter the value from cell Q2.
 
+#### Answer located at: Data!Q2
+&nbsp;
+&nbsp;
 
 ### Question 15
 In column R we are going to extract the product names. Since they are at the beginning of the record, we can use the LEFT function. The number of characters we want returned by the LEFT function will be one less than the location of the first space. Column O tells us the location of the first space. Write a formula in cell R5 to extract the product names and apply it to cells R5:R500.
 
 What is the value in cell R2?
+
+#### Answer located at: Data!R2
+&nbsp;
+&nbsp;
 
 
 ### Question 16
@@ -122,9 +177,17 @@ how many characters to extract.
 
 Write a formula in S5 to extract the Sales Person and apply this down column S. What is the value in cell S2?
 
+#### Answer located at: Data!S2
+&nbsp;
+&nbsp;
+
 
 ### Question 17
 In column T we will extract the date, as text. We can convert it into a value later. Using the same type of formula construction as we did in column S, but with references to the second and third space locations instead of the first and second space locations, write a formula in cells T5:T500 that will return the date as a text string. There is no need to use the TEXT function at this point. When you are done, enter the value from cell T2.
+
+#### Answer located at: Data!T2
+&nbsp;
+&nbsp;
 
 
 ### Question 18
@@ -132,15 +195,33 @@ We're almost done! In column U, we want the Sales Amount, without the dollar sig
 
 In cell U5, write a formula to extract the Sales Amount as a numeric value and apply this down column U. What is the value of the sum in cell U2?
 
+#### Answer located at: Data!U2
+&nbsp;
+&nbsp;
+
 
 ### Question 19
 The final thing we will do on this sheet is to convert the dates in column T from text strings to date values recognised by Excel in column V. We can do this with the formula =DATE(2017,10,??) where the ?? represent the day of the month, which will be either the 7th, or the 7th and 8th characters from column T. Use a MID function to extract these day characters from column T, and embed that MID function within the DATE function in place of the ??. So, the formula at column V5 will look like =DATE(2017,10,MID(...))
 
 You will need to write appropriate arguments inside the MID function in place of "...". When you are done, enter the value from the Check Sum at cell V2.
 
-We have now finished cleaning our data! If you navigate over to the Clean worksheet tab, you should see the columns B to E filled in, ready for analysis to be performed. Save your work. Well done for completing the assignment for this week.
+
+#### Answer located at: Data!V2
+&nbsp;
+&nbsp;
+
+We have now finished cleaning our data! If you navigate over to the Clean worksheet tab, you should see the columns B to E filled in, ready for analysis to be performed. 
 
 
 
+## Credits: Macquarie University for the Data Cleaning Task
+
+
+
+## Contact Information
+[LinkedIn](https://www.linkedin.com/in/ninogarci/)
+&nbsp;
+
+[UpWork](https://www.upwork.com/freelancers/~01dd78612ac234aadd)
 
 
