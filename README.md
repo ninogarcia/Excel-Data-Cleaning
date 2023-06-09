@@ -1,4 +1,4 @@
-# Excel-Data-Cleaning
+# Excel Data Cleaning
 ## Data Cleaning and Preparation
 
 Scenario: You have received some sales data from your company's database. The data is in a dirty format and you are required to clean it up in order to perform some analysis on it. Since your company will need to perform this analysis each month with new data, you are to use formulas to clean the data so that the workbook can be easily updated each month with new records from the database. Follow the instructions carefully and answer the questions as you go.	
